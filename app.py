@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 
 FIREBASE_URL = 'https://mas-programming-9f4f3-default-rtdb.firebaseio.com/'
-PATH_TO_SERVICE_ACC_KEY = 'mas-programming-9f4f3-firebase-adminsdk-ir27a-0a40c33de8.json'
+PATH_TO_SERVICE_ACC_KEY = 'google-credentials.json'
 
 app = Flask(__name__)
 
