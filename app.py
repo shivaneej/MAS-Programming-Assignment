@@ -1,6 +1,5 @@
 import collections
 import json
-from turtle import pos
 from flask import Flask, request
 import firebase_admin
 from firebase_admin import credentials, db
