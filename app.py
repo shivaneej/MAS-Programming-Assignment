@@ -8,6 +8,7 @@ FIREBASE_URL = 'https://mas-programming-9f4f3-default-rtdb.firebaseio.com/'
 PATH_TO_SERVICE_ACC_KEY = 'google-credentials.json'
 
 app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
 
 cred = credentials.Certificate(PATH_TO_SERVICE_ACC_KEY)
 firebase_admin.initialize_app(cred, {'databaseURL' : FIREBASE_URL})
@@ -16,7 +17,7 @@ ref = db.reference('/posts')
 @app.route('/posts', methods=['GET'])
 def query_posts():
     posts = ref.order_by_child('timestamp').get()
-    posts = collections.OrderedDict(reversed(list(posts.items())))    
+    posts = collections.OrderedDict(reversed(list(posts.items())))
     return posts
 
 @app.route('/posts', methods=['POST'])
