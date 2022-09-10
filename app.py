@@ -18,7 +18,7 @@ ref = db.reference('/posts')
 def query_posts():
     posts = ref.order_by_child('timestamp').get()
     posts = collections.OrderedDict(reversed(list(posts.items())))
-    return posts
+    return list(posts.values())
 
 @app.route('/posts', methods=['POST'])
 def create_post():
